@@ -1,0 +1,5 @@
+   Compiling rust_prac v0.1.0 (/home/jai/RustroverProjects/rust_prac)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.33s
+     Running `target/debug/rust_prac`
+thread 'main' panicked at 'index out of bounds: the len is 5 but the index is 5', src/main.rs:15:22
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
