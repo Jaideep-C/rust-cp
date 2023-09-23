@@ -1,12 +1,14 @@
 use std::io::StdinLock;
 
-fn solve(scanner: &mut Scanner<StdinLock>){
+const TESTCASE_AVAILABLE: bool = true;
+
+fn solve(scanner: &mut Scanner<StdinLock>) {
     println!("{}", scanner.next::<String>());
 }
 
 fn main() {
     let mut scanner = Scanner::new(std::io::stdin().lock());
-    let t: i64 = scanner.next();
+    let t: i64 = if TESTCASE_AVAILABLE { scanner.next() } else { 1 };
     for _ in 0..t {
         solve(&mut scanner);
     }
