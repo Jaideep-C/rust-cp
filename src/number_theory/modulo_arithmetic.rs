@@ -29,6 +29,13 @@ impl ModuloArithmetic {
             self.mul(self.mul(half, half), a)
         };
     }
+    fn fact(&self, n: i64) -> i64 {
+        let mut ans = 1;
+        for i in 1..=n {
+            ans = self.mul(ans, i);
+        }
+        return ans;
+    }
 }
 
 
