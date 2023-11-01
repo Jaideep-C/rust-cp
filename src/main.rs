@@ -53,4 +53,11 @@ impl<R: std::io::BufRead> Scanner<R> {
             self.offset = 0;
         }
     }
+    pub fn next_collection<T, C>(&mut self, n: usize) -> C
+        where
+            T: std::str::FromStr,
+            C: FromIterator<T>,
+    {
+        (0..n).map(|_| self.next()).collect()
+    }
 }
