@@ -1,6 +1,19 @@
 use std::io::StdinLock;
 
-const TESTCASE_AVAILABLE: bool = true;
+const TESTCASE_AVAILABLE: bool = !true;
+
+#[cfg(test)]
+mod tests {
+    use proptest::proptest;
+    use proptest::prelude::*;
+    proptest! {
+        #![proptest_config(ProptestConfig::with_cases(1_000_000))]
+        #[test]
+        fn input_is_input(input in 0..1000i32) {
+            prop_assert_eq!(input,input);
+        }
+    }
+}
 
 fn solve(scanner: &mut Scanner<StdinLock>) {
     println!("{}", scanner.next::<String>());
@@ -56,7 +69,7 @@ impl<R: std::io::BufRead> Scanner<R> {
     pub fn next_collection<T, C>(&mut self, n: usize) -> C
         where
             T: std::str::FromStr,
-            C: FromIterator<T>,
+            C: std::iter::FromIterator<T>,
     {
         (0..n).map(|_| self.next()).collect()
     }
