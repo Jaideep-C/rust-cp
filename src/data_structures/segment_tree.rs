@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 pub struct SegmentTree<A, QO, NO>
     where
         QO: Fn(&A, &A) -> A,

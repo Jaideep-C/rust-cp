@@ -1,2 +1,2 @@
 pub mod sieve_of_eratosthenes;
-mod modulo_arithmetic;
+pub mod modulo_arithmetic;

@@ -6,6 +6,7 @@
     Space Complexity: O(n)
     --------------------------------------------------------------
  */
+#[allow(dead_code)]
 pub fn sieve_of_eratosthenes(upper_limit: usize) -> Vec<usize> {
     let mut is_prime = vec![true; upper_limit + 1];
     is_prime[0] = false;

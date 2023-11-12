@@ -1,6 +1,17 @@
 use std::io::StdinLock;
 
-const TESTCASE_AVAILABLE: bool = !true;
+mod number_theory;
+mod data_structures;
+
+
+const MODULO: i64 = 1_000_000_007;
+const TESTCASE_AVAILABLE: bool = true;
+
+fn solve(
+    scanner: &mut Scanner<StdinLock>
+) {
+}
+
 
 #[cfg(test)]
 mod tests {
@@ -13,10 +24,6 @@ mod tests {
             prop_assert_eq!(input,input);
         }
     }
-}
-
-fn solve(scanner: &mut Scanner<StdinLock>) {
-    println!("{}", scanner.next::<String>());
 }
 
 fn main() {

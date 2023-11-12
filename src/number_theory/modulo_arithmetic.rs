@@ -1,24 +1,28 @@
-struct ModuloArithmetic {
+// #[allow(dead_code,unused_variables)]
+pub struct ModuloArithmetic {
     modulo: i64,
 }
-
+#[allow(dead_code)]
 impl ModuloArithmetic {
-    fn new(modulo: i64) -> Self {
+    pub fn new(modulo: i64) -> Self {
         Self { modulo }
     }
-    fn add(&self, a: i64, b: i64) -> i64 {
+    pub fn def()->Self{
+        Self{modulo:1_000_000_007}
+    }
+    pub fn add(&self, a: i64, b: i64) -> i64 {
         return ((a % self.modulo) + (b % self.modulo)) % self.modulo;
     }
-    fn sub(&self, a: i64, b: i64) -> i64 {
+    pub fn sub(&self, a: i64, b: i64) -> i64 {
         return ((a % self.modulo) - (b % self.modulo) + self.modulo) % self.modulo;
     }
-    fn mul(&self, a: i64, b: i64) -> i64 {
+    pub fn mul(&self, a: i64, b: i64) -> i64 {
         return ((a % self.modulo) * (b % self.modulo)) % self.modulo;
     }
-    fn div(&self, a: i64, b: i64) -> i64 {
+    pub fn div(&self, a: i64, b: i64) -> i64 {
         return self.mul(a, self.bin_pow(b, self.modulo - 2));
     }
-    fn bin_pow(&self, a: i64, b: i64) -> i64 {
+    pub fn bin_pow(&self, a: i64, b: i64) -> i64 {
         if b == 0 {
             return 1;
         }
@@ -29,7 +33,7 @@ impl ModuloArithmetic {
             self.mul(self.mul(half, half), a)
         };
     }
-    fn fact(&self, n: i64) -> i64 {
+    pub fn fact(&self, n: i64) -> i64 {
         let mut ans = 1;
         for i in 1..=n {
             ans = self.mul(ans, i);
