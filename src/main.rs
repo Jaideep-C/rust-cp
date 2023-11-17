@@ -1,8 +1,5 @@
 use std::io::StdinLock;
 
-mod number_theory;
-mod data_structures;
-
 
 const MODULO: i64 = 1_000_000_007;
 const TESTCASE_AVAILABLE: bool = true;
