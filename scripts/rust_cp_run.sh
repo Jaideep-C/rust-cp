@@ -21,7 +21,7 @@ fi
 start_time=$(date +%s.%N)
 
 # Build and run the Rust program using Cargo, pipe input from input.txt, and save the output and errors to respective files
-cargo run --package rust_prac --bin rust_prac < "$input_file" > "$output_file" 2> "$error_file"
+cargo run -r --package rust_prac --bin rust_prac < "$input_file" > "$output_file" 2> "$error_file"
 
 # Capture the exit status of the Rust program
 rust_exit_status=$?

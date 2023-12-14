@@ -2,22 +2,23 @@
 pub struct ModuloArithmetic {
     modulo: i64,
 }
+
 #[allow(dead_code)]
 impl ModuloArithmetic {
     pub fn new(modulo: i64) -> Self {
         Self { modulo }
     }
-    pub fn def()->Self{
-        Self{modulo:1_000_000_007}
+    pub fn def() -> Self {
+        Self { modulo: 1_000_000_007 }
     }
     pub fn add(&self, a: i64, b: i64) -> i64 {
-        return ((a % self.modulo) + (b % self.modulo)) % self.modulo;
+        return (a + b) % self.modulo;
     }
     pub fn sub(&self, a: i64, b: i64) -> i64 {
-        return ((a % self.modulo) - (b % self.modulo) + self.modulo) % self.modulo;
+        return (a - b + self.modulo) % self.modulo;
     }
     pub fn mul(&self, a: i64, b: i64) -> i64 {
-        return ((a % self.modulo) * (b % self.modulo)) % self.modulo;
+        return (a * b) % self.modulo;
     }
     pub fn div(&self, a: i64, b: i64) -> i64 {
         return self.mul(a, self.bin_pow(b, self.modulo - 2));
