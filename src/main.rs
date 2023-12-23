@@ -1,13 +1,19 @@
-use std::io::StdinLock;
+use std::io::{BufWriter, StdinLock, Stdout, Write};
 
-
+#[allow(dead_code)]
 const MODULO: i64 = 1_000_000_007;
 const TESTCASE_AVAILABLE: bool = true;
-
-fn solve(
-    scanner: &mut Scanner<StdinLock>
-) {
+macro_rules! fwriteln {
+    ($dst:expr,$($arg:tt)*) => {
+        writeln!($dst,$($arg)*);
+        $dst.flush();
+    };
 }
+#[allow(unused_must_use)]
+fn solve(
+    scanner: &mut Scanner<StdinLock>,
+    buf: &mut BufWriter<Stdout>,
+) {}
 
 
 #[cfg(test)]
@@ -76,9 +82,10 @@ mod tests {
 
 fn main() {
     let mut scanner = Scanner::new(std::io::stdin().lock());
+    let mut buf = BufWriter::new(std::io::stdout());
     let t: i64 = if TESTCASE_AVAILABLE { scanner.next() } else { 1 };
     for _ in 0..t {
-        solve(&mut scanner);
+        solve(&mut scanner, &mut buf);
     }
 }
 
