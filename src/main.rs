@@ -135,4 +135,7 @@ impl<R: std::io::BufRead> Scanner<R> {
     {
         (0..n).map(|_| self.next()).collect()
     }
+    pub fn next_pair<T1: std::str::FromStr, T2: std::str::FromStr>(&mut self) -> (T1, T2) {
+        (self.next(), self.next())
+    }
 }
