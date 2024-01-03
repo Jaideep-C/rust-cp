@@ -9,6 +9,22 @@ macro_rules! fwriteln {
         $dst.flush();
     };
 }
+macro_rules! debugln {
+    ($($es:expr),+) => {
+        #[cfg(debug_assertions)]
+        {
+            eprintln!($($es),+)
+        }
+    };
+}
+macro_rules! debug {
+    ($($es:expr),+) => {
+        #[cfg(debug_assertions)]
+        {
+            eprint!($($es),+)
+        }
+    };
+}
 #[allow(unused_must_use)]
 fn solve(
     scanner: &mut Scanner<StdinLock>,
