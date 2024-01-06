@@ -3,6 +3,7 @@ use std::io::{BufWriter, StdinLock, Stdout, Write};
 #[allow(dead_code)]
 const MODULO: i64 = 1_000_000_007;
 const TESTCASE_AVAILABLE: bool = true;
+#[warn(unused_macros)]
 macro_rules! fwriteln {
     ($dst:expr,$($arg:tt)*) => {
         writeln!($dst,$($arg)*);
