@@ -32,24 +32,6 @@ fn solve(
     scanner: &mut Scanner<StdinLock>,
     buf: &mut BufWriter<Stdout>,
 ) {
-    let n: usize = scanner.next();
-    let arr: Vec<usize> = scanner.next_collection(n);
-    let mut freq = vec![BTreeSet::new(); n];
-    for i in 0..n {
-        freq[arr[i] - 1].insert(i + 1);
-    }
-    let mut ans = 0;
-    for i in 0..n {
-        if freq[i].is_empty() {
-            continue;
-        }
-        let min = *freq[i].iter().next().unwrap();
-        let max = *freq[i].iter().next_back().unwrap();
-        if min == max {
-            continue;
-        }
-        ans=max-min+1;
-    }
 }
 
 
